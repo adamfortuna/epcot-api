@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Reviewable:
+  = @review.reviewable_id
+%p
+  %b Reviewable type:
+  = @review.reviewable_type
+%p
+  %b User:
+  = @review.user_id
+%p
+  %b Rating:
+  = @review.rating
+%p
+  %b Review:
+  = @review.review
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Back', reviews_path

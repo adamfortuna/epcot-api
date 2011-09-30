@@ -1,0 +1,13 @@
+= form_for(review, :url => review.new_record? ? dish_reviews_path(dish) : dish_review_path(dish, review), :remote => true, :html => { "data-ajax" => false }) do |f|
+  %div{ "id" => "dish_review_#{dish.id}", :class => "error" }
+  %div{ "data-role" => "fieldcontain" }
+    = f.label :title
+    = f.text_field :title
+  %div{ "data-role" => "fieldcontain" }
+    = f.label :review
+    = f.text_area :review
+  %div{ "data-role" => "fieldcontain" }
+    = f.label :rating
+    = f.text_field :rating, "type" => "number", "min" => "0", "max" => "10",  "data-type" => "range", "class" => "ui-slider-input"
+  %div{ "data-role" => "fieldcontain" }
+    = f.submit "Submit"

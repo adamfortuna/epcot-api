@@ -1,0 +1,14 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+.header-select { top: -11px !important; }
+.ui-li-has-icon .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-icon { padding-left: 50px !important; }
+.ui-li-icon { left: 13px  !important; top: 8px !important;}
+.ui-icon-flag { left:18px !important; top:15px !important; }
+
+ul li .ui-dish_check_field { position:absolute; top: 40px; left: -4px; }

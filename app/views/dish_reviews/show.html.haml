@@ -1,0 +1,16 @@
+- content_for(:header) do
+  = link_to @dish.short_name, restaurant_dish_path(@restaurant, @dish), "class" => "ui-btn-left", "data-icon" => "arrow-l"
+  %h1= @review.title
+
+%div{ "data-role" => "content"}
+
+  %h2 Review of #{@dish.name}
+  %div{ "class" => "ui-body ui-body-d"}
+    = render :partial => 'dishes/details', :locals => { :dish => @dish }
+
+  %br
+  %div{ "class" => "ui-body ui-body-d"}
+    %h3= @review.title
+    %p Reviewed by #{@review.user.username}
+    %p Rating: #{@review.rating}
+    %p= @review.review

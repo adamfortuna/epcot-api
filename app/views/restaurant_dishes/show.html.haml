@@ -1,0 +1,38 @@
+- content_for(:header) do
+  = link_to @restaurant.name, restaurant_dishes_path(@restaurant), "class" => "ui-btn-left", "data-icon" => "arrow-l"
+  %h1= @dish.name
+
+%div{ "data-role" => "content"}
+  %div{ "class" => "ui-body ui-body-d"}
+    = render :partial => 'dishes/details', :locals => { :dish => @dish }
+
+  %div{ "class" => "ui-body ui-body-d"}
+    - if !user_signed_in?
+      %p
+        = link_to 'Sign In', new_user_session_path
+        or
+        = link_to 'Sign Up', new_user_registration_path
+        to track what you've tried!
+    - elsif @review
+      %div{"data-role" => "collapsible", "data-theme" => "c"}
+        %h3 Rate and Review this Dish
+        %div
+          = render :partial => "dish_reviews/form", :locals => { :dish => @dish, :review => @review }
+
+    - if @dish.reviews.count > 0
+      %h3 Reviews (#{@dish.reviews.count})
+    
+      %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
+        - @dish.reviews.with_rating.reverse_cronological.each do |review|
+          %li{ "data-theme" => "c", "class" => "ui-li-has-arrow" }
+            %div{"class" => "ui-btn-text"}
+              = link_to dish_review_path(@dish, review), "class" => "ui-link-inherit" do
+                %p{ "class" => "ui-li-aside ui-li-desc" }
+                  %strong= review.created_at.to_s(:long)
+                %h3 #{review.rating} - #{review.title}
+                %p{ "class" => "ui-li-desc" }
+                  %strong By #{review.user.username}
+                %p{ "class" => "ui-li-desc" }= truncate(review.review, :length => 140)
+              %span{ "class" => "ui-icon ui-icon-arrow-r ui-icon-shadow"}
+    - else
+      %p No ratings or reviews yet for this dish

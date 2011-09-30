@@ -1,0 +1,23 @@
+%div{ :class => "ui-grid-a" }
+  %div{  :class => "ui-block-a" }
+    = image_tag icon_for_dish(dish), :alt => dish.category
+    = dish_checkbox(dish)
+    %p 
+      %strong Booth: 
+      #{dish.restaurant.name}
+    %p 
+      %strong Dish:
+      #{dish.name}
+
+    - if dish.rating
+      %p 
+        %strong Rating: 
+        #{dish.rating} (#{pluralize(dish.reviews_count, "rating")})
+
+  %div{ :class => "ui-block-b" }
+    %p
+      %strong Category:
+      #{dish.category}
+    %p 
+      %strong Vegetarian: 
+      #{dish.vegetarian?}

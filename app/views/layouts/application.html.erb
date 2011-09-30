@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Epcot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <%= stylesheet_link_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="ui-mobile-viewport">
+
+<div data-role="page" data-url="<%= request.path %>" data-theme="b">
+  <div data-role="header" data-theme="b">
+    <% if content_for?(:header) %>
+      <%= yield :header %>
+    <% else %>
+      <%= link_to 'Home', root_path, "class" => "ui-btn-left", "data-icon" => "arrow-l" %>
+      <h1><%= @title || 'Epcot Food & Wine 2011' %></h1>
+    <% end %>    
+  </div>
+  <%= yield %>
+  <div data-role="footer" data-position="fixed" class="ui-state-persist">
+    <div data-role="navbar">
+  		<ul>
+  		  <li><%= nav_link "Countries", root_path %></li>
+  			<li><%= nav_link "Favorites", favorites_path %></li>
+			  <% unless user_signed_in? %>
+          <li><%= nav_link 'Sign In', new_user_session_path %></li>
+          <li><%= nav_link 'Sign Up', new_user_registration_path %></li>
+        <% else %>
+          <li><%= nav_link 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+        <% end %>
+  		</ul>
+    </div>
+	</div>
+</div>
+
+<%= javascript_include_tag "application" %>
+</body>
+</html>

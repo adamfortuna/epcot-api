@@ -1,0 +1,16 @@
+<% if @review.errors.any? %>
+  // Create a list of errors
+  var errors = $('<ul />');
+
+  <% @review.errors.full_messages.each do |error| %>
+    errors.append('<li><%= escape_javascript( error ) %></li>');
+  <% end %>
+
+  // Display errors on form
+  $('.errors').empty();
+  $('#dish_review_<%= @review.reviewable.id %>').html(errors);
+
+<% else %>
+  $('.errors').empty();
+  window.location = '<%= dish_review_path(@review.reviewable, @review) %>';
+<% end %>

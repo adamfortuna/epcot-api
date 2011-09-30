@@ -1,0 +1,15 @@
+- content_for(:header) do
+  %h1 Epcot Food & Wine 2011
+  = restaurant_sort_link(params[:order])
+
+%div{ "data-role" => "content"}
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-corner-all ui-shadow", "data-inset" => true }
+    - @restaurants.each do |restaurant|
+      %li{ "class" => "ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-li-has-icon"}
+
+        %div{ "class" => "ui-btn-text" }
+        = link_to restaurant_dishes_path(restaurant), "class" => "ui-link-inherit" do
+          = image_tag icon_for_restaurant(restaurant), :alt => restaurant.name, :class => "ui-li-icon ui-li-thumb ui-icon-flag"
+          = restaurant.name
+          %span{"class" => "ui-li-count ui-btn-up-c ui-btn-corner-all"}= pluralize(restaurant.dishes_count, "dish")
+          %span{"class" => "ui-icon ui-icon-arrow-r ui-icon-shadow"}

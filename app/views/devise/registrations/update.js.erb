@@ -1,0 +1,16 @@
+<% if resource.errors.any? %>
+  // Create a list of errors
+  var errors = $('<ul />');
+
+  <% resource.errors.full_messages.each do |error| %>
+    errors.append('<li><%= escape_javascript( error ) %></li>');
+  <% end %>
+
+  // Display errors on form
+  $('.errors').empty();
+  $('#user_errors').html(errors);
+
+<% else %>
+  $('.errors').empty();
+  window.location = '/';
+<% end %>

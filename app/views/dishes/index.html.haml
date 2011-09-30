@@ -1,0 +1,27 @@
+%h1 Listing dishes
+
+%table
+  %tr
+    %th Slug
+    %th Restaurant
+    %th Category
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @dishes.each do |dish|
+    %tr
+      %td= dish.slug
+      %td= dish.restaurant_id
+      %td= dish.category
+      %td= dish.name
+      %td= dish.description
+      %td= link_to 'Show', dish
+      %td= link_to 'Edit', edit_dish_path(dish)
+      %td= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Dish', new_dish_path
