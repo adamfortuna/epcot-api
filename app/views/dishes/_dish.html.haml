@@ -1,4 +1,4 @@
-%li{ "class" => "ui-btn "}
+%li{ "class" => "ui-btn" }
   = dish_checkbox(dish)
   = link_to restaurant_dish_path(dish.restaurant, dish) do
     = image_tag icon_for_dish(dish), :alt => dish.category, :class => "ui-li-icon ui-li-thumb"
@@ -6,5 +6,7 @@
     - if dish.price
       %span{"class" => "ui-li-count ui-btn-up-c ui-btn-corner-all"}
         %strong= dish.restaurant.name
+    %span{"class" => "ui-li-count ui-btn-up-c ui-btn-corner-all"}
+      %strong= dish.restaurant.name
     %span{"class" => "ui-icon ui-icon-arrow-r ui-icon-shadow"}
     %p{ "class" => "ui-li-desc" }= truncate(dish.description || "description here", :length => 140)
