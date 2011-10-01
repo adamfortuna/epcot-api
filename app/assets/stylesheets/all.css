@@ -1,3 +1,11 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require jquery.mobile
+ *= require application
+*/
+
 h1.left { text-align:left !important; margin-left: 10px !important; margin-right:0px  !important; }
 .header-select { top: -11px !important; }
 .ui-li-has-icon .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-icon { padding-left: 50px !important; }

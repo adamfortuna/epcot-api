@@ -3,7 +3,12 @@
 <head>
   <title>Epcot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <%= stylesheet_link_tag "application" %>
+  <% if Rails.env.production? %>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.css" />
+  	<%= stylesheet_link_tag "application" %>
+  <% else %>
+  	<%= stylesheet_link_tag "all" %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body class="ui-mobile-viewport">
@@ -34,7 +39,7 @@
 	</div>
 </div>
 
-<% if true || Rails.env.production? %>
+<% if Rails.env.production? %>
   <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>
   <%= javascript_include_tag "application" %>
