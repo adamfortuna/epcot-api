@@ -3,7 +3,7 @@
   = restaurant_sort_link(params[:order])
 
 %div{ "data-role" => "content"}
-  %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-corner-all ui-shadow", "data-inset" => true }
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-corner-all ui-shadow" }
     - @restaurants.each do |restaurant|
       %li{ "class" => "ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-li-has-icon"}
 

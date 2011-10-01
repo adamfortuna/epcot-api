@@ -6,5 +6,5 @@
       = select_tag :order, options_for_select([['Sort by Category', 'category'], ["Sort by Dish", "name"], ["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating"], ["Sort by Price", "price"]], :selected => params[:order])
 
 %div{ "data-role" => "content"}
-  %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
     = render @dishes

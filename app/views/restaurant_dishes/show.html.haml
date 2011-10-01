@@ -21,7 +21,7 @@
 
     - if @dish.reviews.count > 0
       %h3 Reviews (#{@dish.reviews.count})
-    
+
       %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
         - @dish.reviews.with_rating.reverse_cronological.each do |review|
           %li{ "data-theme" => "c", "class" => "ui-li-has-arrow" }

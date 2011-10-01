@@ -3,8 +3,8 @@
   %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-right header-select"}
     = form_tag(favorites_path, :method => :get, :class => "dish_order") do |f|
       = select_tag :order, options_for_select([["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating"], ], :selected => params[:order]), "data-native-menu" => "false", :"data-theme" => "c"  		
-              		
+		
 %div{ "data-role" => "content"}
   %p These are the dishes that are the most popular at this years Food and Wine Festival.
-  %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
     = render @dishes, :locals => { :show_restaurants => true }
