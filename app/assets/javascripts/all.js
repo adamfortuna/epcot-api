@@ -1,6 +1,7 @@
 //= require jquery
-//
-//= require_tree .
+//= require jquery.mobile
+//= require rails
+//= require application
 
 $(function() {
   $(".dish_check_form input").live('change',  function(e) {
