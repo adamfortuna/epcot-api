@@ -10,6 +10,14 @@
   	<%= stylesheet_link_tag "all" %>
   <% end %>
   <%= csrf_meta_tags %>
+
+  <% if Rails.env.production? %>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>
+    <%= javascript_include_tag "application" %>
+  <% else %>
+    <%= javascript_include_tag "all" %>
+  <% end %>
 </head>
 <body class="ui-mobile-viewport">
 
@@ -27,24 +35,17 @@
     <div data-role="navbar">
   		<ul>
   		  <li><%= nav_link "Countries", root_path %></li>
+  		  <li><%= nav_link "Dishes", dishes_path %></li>
   			<li><%= nav_link "Favorites", favorites_path %></li>
 			  <% unless user_signed_in? %>
           <li><%= nav_link 'Sign In', new_user_session_path %></li>
           <li><%= nav_link 'Sign Up', new_user_registration_path %></li>
         <% else %>
-          <li><%= nav_link 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+          <li><%= nav_link 'Account', edit_user_registration_path %></li>
         <% end %>
   		</ul>
     </div>
 	</div>
 </div>
-
-<% if Rails.env.production? %>
-  <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.0rc1/jquery.mobile-1.0rc1.min.js"></script>
-  <%= javascript_include_tag "application" %>
-<% else %>
-  <%= javascript_include_tag "all" %>
-<% end %>
 </body>
 </html>

@@ -1,18 +1,22 @@
 <% @title = 'Forgot your password?' %>
 
-<div data-role = "content">
-  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-    <%= devise_error_messages! %>
+<div data-role="content">
+  <div class="ui-body ui-body-d">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div data-role="fieldcontain">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
+      <div data-role="fieldcontain">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
 
-    <div data-role="fieldcontain">
-      <%= f.submit "Send me reset password instructions" %>
-    </div>
-  <% end %>
-
-  <%= render :partial => "devise/shared/links" %>
+      <div data-role="fieldcontain">
+        <%= f.submit "Send me reset password instructions" %>
+      </div>
+    <% end %>
+  </div>
+  <br/>
+  <div class="ui-body ui-body-d">
+    <%= render :partial => "devise/shared/links" %>
+  </div>
 </div>

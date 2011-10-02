@@ -1,4 +1,12 @@
 class Dish < ActiveRecord::Base
+  CATEGORIES = [
+    "Wine",
+    "Alcohol",
+    "Food",
+    "Dessert",
+    "Beer"
+  ].sort.freeze
+
   extend FriendlyId
   friendly_id :name, :use => :slugged
   belongs_to :restaurant, :counter_cache => true

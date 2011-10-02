@@ -1,27 +1,12 @@
-%h1 Listing dishes
+- content_for(:header) do
+  %h1 All Dishes
+  = form_tag(dishes_path, :method => :get, :class => "dish_order") do |f|
+    %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-left header-select"}
+      = select_tag :order, options_for_select([['Sort by Category', 'category'], ["Sort by Dish", "name"], ["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating-desc"], ["Sort by Price", "price"]], :selected => params[:order]), "data-native-menu" => "false", :"data-theme" => "c"  		
+    %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-right header-select"}
+      = select_tag :category, options_for_select(Dish::CATEGORIES.collect { |d| [d,d] }, :selected => params[:category], :blank => "Show all"), "data-native-menu" => "false", :"data-theme" => "c"
 
-%table
-  %tr
-    %th Slug
-    %th Restaurant
-    %th Category
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
-
-  - @dishes.each do |dish|
-    %tr
-      %td= dish.slug
-      %td= dish.restaurant_id
-      %td= dish.category
-      %td= dish.name
-      %td= dish.description
-      %td= link_to 'Show', dish
-      %td= link_to 'Edit', edit_dish_path(dish)
-      %td= link_to 'Destroy', dish, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Dish', new_dish_path
+%div{ "data-role" => "content"}
+  %br
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
+    = render @dishes, :locals => { :show_restaurants => true }

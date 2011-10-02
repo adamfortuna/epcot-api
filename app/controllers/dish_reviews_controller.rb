@@ -8,18 +8,7 @@ class DishReviewsController < ApplicationController
     @review = @dish.reviews.new(params[:review].merge(:user_id => current_user.id))
 
     flash[:notice] = "Review successfully created" if @review.save
-    respond_with(@review, :layout => !request.xhr? )
-        
-    # if @review.save
-    #   redirect_to dish_review_path(@dish, @review), :notice => "Successfully added your review!"
-    # else
-    #   head :unprocessable_entity, :message => "test"
-    #   
-    #   respond_to do |format|
-    #     # format.html { render '/restaurant_dishes/show' }
-    #     format.js { 'alert("test");' }
-    #   end
-    # end
+    respond_with(@review, :layout => !request.xhr?)
   end
   
   # POST /dishes/:dish_id/reviews
@@ -27,15 +16,6 @@ class DishReviewsController < ApplicationController
     @review = current_user.reviews.where(:reviewable_id => @dish.id, :reviewable_type => 'Dish').first!
     flash[:notice] = "Review updated created" if @review.update_attributes(params[:review])
     respond_with(@review, :layout => !request.xhr? )
-    
-    # if @review.update_attributes(params[:review])
-    #   redirect_to dish_review_path(@dish, @review), :notice => "Successfully added your review!"
-    # else
-    #   head :unprocessable_entity
-    #   # respond_to do |format|
-    #   #   format.html { render '/restaurant_dishes/show' }
-    #   # end
-    # end
   end
   
   # GET /dishes/:dish_id/reviews/:id

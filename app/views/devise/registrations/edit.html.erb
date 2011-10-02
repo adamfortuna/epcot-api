@@ -1,28 +1,55 @@
 <% @title = 'Edit User' %>
 
-<div data-role = "content">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-    <div id="user_errors"></div>
-    <%= devise_error_messages! %>
+<div data-role="content">
+  <div class="ui-body ui-body-d">
+    <p>Edit your account. Leave password blank if you don't want to change it.</p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, "data-ajax" => false }, :remote => true) do |f| %>
+      <%= devise_error_messages! %>
+      <div id="user_errors"></div>
 
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+      <div data-role="fieldcontain">
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <span>*</span>
+      </div>
 
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password %></div>
+      <div data-role="fieldcontain">
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
 
-    <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></div>
+      <div data-role="fieldcontain">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <span>*</span>
+      </div>
 
-    <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password %></div>
+      <div data-role="fieldcontain">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <span>*</span>
+      </div>
 
-    <div><%= f.submit "Update" %></div>
-  <% end %>
+      <div data-role="fieldcontain">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <span>*</span>
+      </div>
 
-  <h3>Cancel my account</h3>
+      <div data-role="fieldcontain">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password %>
+        <span>*</span>
+      </div>
 
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-  <%= link_to "Back", :back %>
+      <div data-role="fieldcontain">
+        <%= f.submit "Update", "data-theme" => "b" %>
+      </div>
+    <% end %>
+  </div>
+  <br/>
+  <div class="ui-body ui-body-d">
+    <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+  </div>
 </div>

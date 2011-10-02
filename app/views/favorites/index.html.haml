@@ -6,5 +6,6 @@
 		
 %div{ "data-role" => "content"}
   %p These are the dishes that are the most popular at this years Food and Wine Festival.
+  %br
   %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
     = render @dishes, :locals => { :show_restaurants => true }

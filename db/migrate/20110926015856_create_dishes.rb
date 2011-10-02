@@ -12,6 +12,7 @@ class CreateDishes < ActiveRecord::Migration
       t.integer :reviews_count, :default => 0
       t.decimal :price, :precision => 8, :scale => 2
       t.decimal :rating, :precision => 4, :scale => 2
+      t.text :notes
     end
     add_index :dishes, :slug, :unique => true
     add_index :dishes, :category

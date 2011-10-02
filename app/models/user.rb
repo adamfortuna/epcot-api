@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, length: { :maximum => 250 }
   
   def checked?(dish)
-    dish_ids.include?(dish.id)
+    @dish_ids ||= dish_ids
+    @dish_ids.include?(dish.id)
   end
 end
