@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def index
-    @dishes = Dish.where("reviews_count > 0").order(sort_order).limit(25)
+    @dishes = Dish.where("reviews_count > 0 OR dish_checks_count > 0").order(sort_order).limit(25)
   end
   
   private

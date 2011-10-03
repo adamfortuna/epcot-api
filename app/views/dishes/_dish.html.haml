@@ -6,7 +6,6 @@
       
       
     %p{ "class" => "ui-li-desc" }
-      = number_to_currency(dish.price)
-      - if dish.description
-        \-
-        = truncate(dish.description || "description here", :length => 140)
+      = [number_to_currency(dish.price), 
+         dish.restaurant.name,
+         truncate(dish.description, :length => 140)].compact.join(", ")
