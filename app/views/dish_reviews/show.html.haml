@@ -10,7 +10,8 @@
 
   %br
   %div{ "class" => "ui-body ui-body-d"}
-    %h3= @review.title
-    %p Reviewed by #{@review.user.username}
+    - if @review.has_review?
+      %h3= @review.title
+      %p Reviewed by #{@review.user.username}
+      %p= @review.review
     %p Rating: #{@review.rating}
-    %p= @review.review

@@ -1,6 +1,5 @@
 - content_for(:header) do
-  = link_to 'Booths', root_path, "class" => "ui-btn-left", "data-icon" => "arrow-l"
-  %h1= @restaurant.name
+  %h1{ :class => "left" }= @restaurant.name
   %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-right header-select"}
     = form_tag(restaurant_dishes_path(@restaurant), :method => :get, :class => "dish_order") do |f|
       = select_tag :order, options_for_select([['Sort by Category', 'category'], ["Sort by Dish", "name"], ["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating"], ["Sort by Price", "price"]], :selected => params[:order])

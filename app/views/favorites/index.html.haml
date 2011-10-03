@@ -1,5 +1,5 @@
 - content_for(:header) do
-  %h1 Popular Dishes
+  %h1{ :class => "left" } Popular Dishes
   %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-right header-select"}
     = form_tag(favorites_path, :method => :get, :class => "dish_order") do |f|
       = select_tag :order, options_for_select([["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating"], ], :selected => params[:order]), "data-native-menu" => "false", :"data-theme" => "c"  		

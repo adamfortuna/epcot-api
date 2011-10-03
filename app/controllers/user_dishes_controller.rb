@@ -6,6 +6,7 @@ class UserDishesController < ApplicationController
   # GET /users/:user_id/dishes
   def index
     @dishes = @user.dishes.order(sort_order).includes(:restaurant)
+    @dishes = @dishes.where(:category => params[:category]) if params[:category]
     respond_with(@dishes)
   end
   

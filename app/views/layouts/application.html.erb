@@ -29,22 +29,24 @@
       <%= link_to 'Home', root_path, "class" => "ui-btn-left", "data-icon" => "arrow-l" %>
       <h1><%= @title || 'Epcot Food & Wine 2011' %></h1>
     <% end %>    
-  </div>
-  <%= yield %>
-  <div data-role="footer" data-position="fixed" class="ui-state-persist">
     <div data-role="navbar">
   		<ul>
   		  <li><%= nav_link "Countries", root_path %></li>
   		  <li><%= nav_link "Dishes", dishes_path %></li>
   			<li><%= nav_link "Favorites", favorites_path %></li>
 			  <% unless user_signed_in? %>
-          <li><%= nav_link 'Sign In', new_user_session_path %></li>
-          <li><%= nav_link 'Sign Up', new_user_registration_path %></li>
+          <li><%= nav_link 'Join', new_user_registration_path %></li>
         <% else %>
           <li><%= nav_link 'Account', edit_user_registration_path %></li>
         <% end %>
   		</ul>
     </div>
+  </div>
+  <%= yield %>
+  <div data-role="footer">
+    <ul>
+      <li><%= link_to "About", '/home/about' %></li>
+    </ul>
 	</div>
 </div>
 </body>

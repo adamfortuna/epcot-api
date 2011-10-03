@@ -19,11 +19,11 @@
         %div
           = render :partial => "dish_reviews/form", :locals => { :dish => @dish, :review => @review }
 
-    - if @dish.reviews.count > 0
+    - if @dish.reviews.with_review.count > 0
       %h3 Reviews (#{@dish.reviews.count})
 
       %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
-        - @dish.reviews.with_rating.reverse_cronological.each do |review|
+        - @dish.reviews.with_review.reverse_cronological.each do |review|
           %li{ "data-theme" => "c", "class" => "ui-li-has-arrow" }
             %div{"class" => "ui-btn-text"}
               = link_to dish_review_path(@dish, review), "class" => "ui-link-inherit" do

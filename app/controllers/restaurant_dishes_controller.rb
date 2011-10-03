@@ -5,7 +5,7 @@ class RestaurantDishesController < ApplicationController
 
   # GET /restaurant/:restaurant_id/dishes
   def index
-    @dishes = @restaurant.dishes.order(sort_order).includes(:restaurant)
+    @dishes = @restaurant.dishes.order(sort_order, :name).includes(:restaurant)
     respond_with(@dishes)
   end
   

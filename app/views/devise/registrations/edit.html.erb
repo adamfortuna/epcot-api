@@ -49,6 +49,7 @@
   </div>
   <br/>
   <div class="ui-body ui-body-d">
+    <p><%= link_to "My Dishes", user_dishes_path(current_user) %></p>
     <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
     <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
   </div>
