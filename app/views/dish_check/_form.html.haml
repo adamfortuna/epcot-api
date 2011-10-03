@@ -1,2 +1,4 @@
-= form_tag dish_check_path(dish), :method => ( current_user.checked?(dish) ? :delete : :post ), :class => "dish_check_form", "data-ajax" => false, :remote => true do
-  %input{ :type => :checkbox, :checked => current_user.checked?(dish) }
+%fieldset{ "data-role" => "controlgroup" }
+  = form_tag dish_check_path(dish), :method => ( current_user.checked?(dish) ? :delete : :post ), :class => "dish_check_form", "data-ajax" => false, :remote => true do    
+    %input{ :type => :checkbox, :id => "dish_check_#{dish.id}", :checked => current_user.checked?(dish), :class => "custom", "data-theme" => "d" }
+    %label{ :for => "dish_check_#{dish.id}"} &nbsp;

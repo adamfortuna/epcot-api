@@ -4,4 +4,15 @@ h1.left { text-align:left !important; margin-left: 10px !important; margin-right
 .ui-li-icon { left: 13px  !important; top: 8px !important;}
 .ui-icon-flag { left:18px !important; top:15px !important; }
 
-ul li .ui-dish_check_field { position:absolute; top: 40px; left: -4px; }
+ul li .ui-dish_check_field {}
+ul .dish_check_form label { width: 48px !important; height: 34px !important; top: -13px !important; left: 9px !important;}
+
+ul .ui-dish_check_field {
+float: right !important;
+margin-top: 21px !important;
+margin-right: 18px !important;
+position: relative !important;
+top: auto !important;
+left: auto !important;
+height:0px !important;
+cursor: hand; } 

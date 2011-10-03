@@ -3,8 +3,8 @@
   = link_to restaurant_dish_path(dish.restaurant, dish) do
     = image_tag icon_for_dish(dish), :alt => dish.category, :class => "ui-li-icon ui-li-thumb"
     %h3= dish.name
-    %span{"class" => "ui-li-count ui-btn-up-c ui-btn-corner-all"}= dish.restaurant.name
-    %span{"class" => "ui-icon ui-icon-arrow-r ui-icon-shadow"}
+      
+      
     %p{ "class" => "ui-li-desc" }
       = number_to_currency(dish.price)
       - if dish.description
