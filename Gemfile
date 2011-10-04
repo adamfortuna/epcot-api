@@ -20,6 +20,10 @@ group :production do
   gem 'pg'
 end
 
+group :development do
+  gem 'ruby-debug19'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

@@ -1,26 +1,20 @@
 class DishCheckController < ApplicationController
+  respond_to :html, :js
   before_filter :set_dish
 
   # POST /dishes/:id/check
   def create
-    check = current_user.dish_checks.new(:dish_id => @dish.id)
-    if check.save
-      render :create, :status => :created
+    @dish_id = @dish.id
+    @check = current_user.dish_checks.where(:dish_id => @dish.id).first
+    if @check
+      @check = nil if @check.destroy
     else
-      render :create, :status => :created
+      @check = current_user.dish_checks.new(:dish_id => @dish.id)
+      @check.save
     end
+    respond_with(@check)
   end
-  
-  # DELETE /dishes/:dish_id/check
-  def destroy
-    check = current_user.dish_checks.where(:dish_id => @dish.id).first
-    if check.destroy
-      render :destroy
-    else
-      render :destroy
-    end
-  end
-  
+
   private
   
   def set_dish

@@ -1,0 +1,6 @@
+
+<% if @check %>
+  $("#dish_check_<%= @dish_id %> input[type=checkbox]").attr('checked', true)
+<% else %>
+  $("#dish_check_<%= @dish_id %> input[type=checkbox]").removeAttr('checked')
+<% end %>
