@@ -4,7 +4,12 @@
     = image_tag icon_for_dish(dish), :alt => dish.category, :class => "ui-li-icon ui-li-thumb"
     %h3= dish.name
       
-      
+    - if dish.dish_checks_count > 0 || dish.reviews_count > 0 || dish.ratings_count > 0
+      %p{ "class" => "ui-li-desc" }
+        = [(dish.reviews_count > 0 ? pluralize(dish.reviews_count, "review") : nil),
+           (dish.dish_checks_count > 0 ? pluralize(dish.dish_checks_count, "check") : nil),
+           (dish.ratings_count > 0 ? "Rating: #{dish.rating} (#{pluralize(dish.ratings_count, 'rating')})" : nil)].compact.join(", ")
+
     %p{ "class" => "ui-li-desc" }
       = [number_to_currency(dish.price), 
          dish.restaurant.name,

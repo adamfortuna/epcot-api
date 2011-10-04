@@ -16,8 +16,9 @@ class Dish < ActiveRecord::Base
   validates :name, :presence => true, length: { :maximum => 250 }
   
   def update_rating!
-    new_reviews_count = reviews.count
-    new_rating = (new_reviews_count == 0) ? nil : reviews.sum(:rating)
-    update_attributes({ :rating => new_rating, :reviews_count => new_reviews_count })
+    new_ratings_count = reviews.count
+    new_reviews_count = reviews.with_review.count
+    new_rating = (new_ratings_count == 0) ? nil : reviews.sum(:rating)
+    update_attributes({ :rating => new_rating, :ratings_count => new_ratings_count, :reviews_count => new_reviews_count })
   end
 end

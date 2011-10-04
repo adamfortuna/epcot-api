@@ -8,7 +8,7 @@ class Review < ActiveRecord::Base
   
   validates :title, :presence => true, :if => :review?
   validates :review, :presence => true, :if => :title?
-  validates :rating, :presence => true, :numericality => { :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10 }
+  validates :rating, :presence => true, :numericality => { :greater_than => 1, :less_than_or_equal_to => 10 }
   
   after_save :update_reviewable_rating
   before_save :nullify_review

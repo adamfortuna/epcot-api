@@ -36,9 +36,10 @@ ActiveRecord::Schema.define(:version => 20110929205928) do
     t.boolean  "vegetarian"
     t.boolean  "vegan"
     t.boolean  "gluten_free"
-    t.integer  "reviews_count",                                                  :default => 0
     t.decimal  "price",                            :precision => 8, :scale => 2
+    t.integer  "reviews_count",                                                  :default => 0
     t.decimal  "rating",                           :precision => 4, :scale => 2
+    t.integer  "ratings_count",                                                  :default => 0
     t.text     "notes"
     t.integer  "dish_checks_count",                                              :default => 0
   end

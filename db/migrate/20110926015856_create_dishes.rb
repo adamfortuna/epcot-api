@@ -8,10 +8,13 @@ class CreateDishes < ActiveRecord::Migration
       t.string :short_name, :limit => 200, :null => false
       t.string :name, :limit => 200, :null => false
       t.text :description
-      t.boolean :vegetarian, :vegan, :gluten_free
-      t.integer :reviews_count, :default => 0
+      t.boolean :vegetarian, :default => true
+      t.boolean :vegetarian, :default => true
+      t.boolean :gluten_free, :default => false
       t.decimal :price, :precision => 8, :scale => 2
+      t.integer :reviews_count, :default => 0
       t.decimal :rating, :precision => 4, :scale => 2
+      t.integer :ratings_count, :default => 0
       t.text :notes
     end
     add_index :dishes, :slug, :unique => true

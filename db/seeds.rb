@@ -15,6 +15,7 @@ Restaurant.find_or_initialize_by_name('Australia').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 5.75
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Lamington").tap do |dish|
     dish.name = dish.short_name
@@ -85,6 +86,7 @@ Restaurant.find_or_initialize_by_name('Argentina').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 5.00
+    dish.gluten_free = true
   end.save!  
   restaurant.dishes.find_or_initialize_by_short_name("Beef Empanada").tap do |dish|
     dish.name = dish.short_name
@@ -294,6 +296,7 @@ Restaurant.find_or_initialize_by_name('South Korea').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 3.00
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Buolgogi BBQ Beef").tap do |dish|
     dish.name = "Buolgogi BBQ Beef with Steamed Rice and Kimchi"
@@ -671,6 +674,7 @@ Restaurant.find_or_initialize_by_name('Singapore').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 3.25
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Singapore Sling").tap do |dish|
     dish.name = dish.short_name
@@ -744,6 +748,7 @@ Restaurant.find_or_initialize_by_name('New Zealand').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 4.25
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Lamb Slider").tap do |dish|
     dish.name = "Lamb Slider with Tomato Chutney"
@@ -1001,6 +1006,7 @@ Restaurant.find_or_initialize_by_name('Canada').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 4.50
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Chicken Chipotle Sausage").tap do |dish|
     dish.name = dish.short_name
@@ -1008,6 +1014,7 @@ Restaurant.find_or_initialize_by_name('Canada').tap do |restaurant|
     dish.category = 'Food'
     dish.vegetarian = false
     dish.price = 4.00
+    dish.gluten_free = true
   end.save!
   restaurant.dishes.find_or_initialize_by_short_name("Moosehead Beer").tap do |dish|
     dish.name = dish.short_name

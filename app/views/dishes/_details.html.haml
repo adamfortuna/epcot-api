@@ -1,5 +1,5 @@
 %div{ :class => "ui-grid-a" }
-  %div{  :class => "ui-block-a" }
+  %div{ :class => "ui-block-a dish_description" }
     = image_tag icon_for_dish(dish), :alt => dish.category
     = dish_checkbox(dish)
     %p 
@@ -20,4 +20,7 @@
       #{dish.category}
     %p 
       %strong Vegetarian: 
-      #{dish.vegetarian?}
+      #{dish.vegetarian? ? "yes" : "no"}
+    %p
+      %strong Gluten Free:
+      #{dish.gluten_free? ? "yes" : "no"}

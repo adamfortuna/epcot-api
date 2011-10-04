@@ -7,12 +7,7 @@ h1.left { text-align:left !important; margin-left: 10px !important; margin-right
 ul li .ui-dish_check_field {}
 ul .dish_check_form label { width: 48px !important; height: 34px !important; top: -13px !important; left: 9px !important;}
 
-ul .ui-dish_check_field {
-float: right !important;
-margin-top: 21px !important;
-margin-right: 18px !important;
-position: relative !important;
-top: auto !important;
-left: auto !important;
-height:0px !important;
-cursor: hand; } 
+ul .ui-dish_check_field { float: right !important; margin-top: 21px !important; margin-right: 18px !important; position: relative !important; top: auto !important; left: auto !important; height:0px !important; cursor: hand; } 
+
+.dish_description .ui-dish_check_field { width:0 !important; }
+.dish_description .ui-dish_check_field .ui-checkbox { width:50px !important; }

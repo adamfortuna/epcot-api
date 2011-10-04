@@ -6,6 +6,7 @@
   %div{ "class" => "ui-body ui-body-d"}
     = render :partial => 'dishes/details', :locals => { :dish => @dish }
 
+  %br
   %div{ "class" => "ui-body ui-body-d"}
     - if !user_signed_in?
       %p
@@ -15,12 +16,12 @@
         to track what you've tried!
     - elsif @review
       %div{"data-role" => "collapsible", "data-theme" => "c"}
-        %h3 Rate and Review this Dish
+        %h3 Your Rating and Review for Dish
         %div
           = render :partial => "dish_reviews/form", :locals => { :dish => @dish, :review => @review }
 
-    - if @dish.reviews.with_review.count > 0
-      %h3 Reviews (#{@dish.reviews.count})
+    - if @dish.reviews.count > 0
+      %h3 Reviews (#{@dish.reviews_count})
 
       %ul{ "data-role" => "listview", :class => "ui-listview ui-listview-inset ui-shadow", "data-inset" => true }
         - @dish.reviews.with_review.reverse_cronological.each do |review|
