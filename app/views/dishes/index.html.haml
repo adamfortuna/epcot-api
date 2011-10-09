@@ -1,12 +1,12 @@
 - content_for(:header) do
   %h1 All Dishes
+
+%div{ "data-role" => "content"}
   = form_tag(dishes_path, :method => :get, :class => "dish_order") do |f|
     %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-left header-select"}
       = select_tag :order, options_for_select([['Sort by Category', 'category'], ["Sort by Dish", "name"], ["Sort by Popularity", "dish_checks_count-desc"], ["Sort by Rating", "rating-desc"], ["Sort by Price", "price"]], :selected => params[:order]), "data-native-menu" => "false", :"data-theme" => "c"  		
     %div{"data-role" => "fieldcontain", "data-icon" => "gear", "class" => "ui-btn-right header-select"}
       = select_tag :category, options_for_select(Dish::CATEGORIES.collect { |d| [d,d] }, :selected => params[:category], :blank => "Show all"), "data-native-menu" => "false", :"data-theme" => "c"
-
-%div{ "data-role" => "content"}
   %br
   %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
     = render @dishes, :locals => { :show_restaurants => true }

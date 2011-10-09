@@ -7,7 +7,7 @@
 */
 
 h1.left { text-align:left !important; margin-left: 10px !important; margin-right:0px  !important; }
-.header-select { top: -11px !important; }
+.header-select { top: -19px !important; }
 .ui-li-has-icon .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-icon { padding-left: 50px !important; }
 .ui-li-icon { left: 13px  !important; top: 8px !important;}
 .ui-icon-flag { left:18px !important; top:15px !important; }
