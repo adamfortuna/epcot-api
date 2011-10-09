@@ -45,9 +45,9 @@
   </div>
   <%= yield %>
   <div data-role="footer">
-    <ul>
-      <li><%= link_to "About", '/home/about' %></li>
-    </ul>
+    <%= link_to "About", '/home/about' %>
+    <%= link_to "Links", '/home/links' %>
+    <%= link_to "Report a Problem", '/reports/new' %>
 	</div>
 </div>
 </body>

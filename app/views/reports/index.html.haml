@@ -1,0 +1,7 @@
+- content_for(:header) do
+  %h1{ :class => "left" } Reported Problems
+
+%div{ "data-role" => "content"}
+  %h3 Reported Problems
+  %ul{ "data-role" => "listview", :class => "ui-listview ui-shadow" }
+    = render @reports

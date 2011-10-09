@@ -2,6 +2,8 @@ Epcot::Application.routes.draw do
   root :to => 'restaurants#index'
   devise_for :users
   
+  resources :reports, :only => %w(index new create show)
+
   resources :users, :only => %w() do 
     resources :dishes, :controller => 'user_dishes', :only => %w(index)
   end
